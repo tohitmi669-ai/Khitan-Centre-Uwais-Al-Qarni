@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Khitan Centre Uwais Al Qarni | Sunat Modern Tanpa Sakit</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS (Animate On Scroll) CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome Icons (untuk tambahan estetika) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'teal-dark': '#0F4C5C',   // Hijau Toska gelap (Navy sentuhan)
+                        'teal-primary': '#1A7F7A', // Hijau Toska utama
+                        'teal-light': '#B2DFDB',   // Hijau Toska terang
+                        'navy-blue': '#0A2B3E',    // Biru Navy
+                        'soft-white': '#F8FAFC',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'Segoe UI', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom CSS untuk efek tambahan dan smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        /* Navbar transparan -> solid saat scroll */
+        .navbar-scrolled {
+            background-color: rgba(10, 43, 62, 0.95) !important; /* navy-blue with opacity */
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .navbar-transparent {
+            background-color: transparent;
+            transition: all 0.3s ease;
+        }
+        /* Efek floating tombol WhatsApp pulsing */
+        .btn-wa-float {
+            animation: pulse-ring 1.5s infinite;
+            transition: transform 0.2s ease;
+        }
+        .btn-wa-float:hover {
+            transform: scale(1.08);
+        }
+        @keyframes pulse-ring {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        /* Efek zoom galeri */
+        .gallery-zoom {
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        .gallery-zoom img {
+            transition: transform 0.5s ease;
+        }
+        .gallery-zoom:hover img {
+            transform: scale(1.08);
+        }
+        /* Hover kartu layanan */
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.2);
+        }
+        /* Tombol CTA mengembang */
+        .btn-expand {
+            transition: transform 0.25s ease, background-color 0.2s;
+        }
+        .btn-expand:hover {
+            transform: scale(1.05);
+        }
+        /* Hero teks fade-in-up custom (AOS) */
+        .hero-fade-up {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Mobile-first adjustments */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+        /* styling scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #E2E8F0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1A7F7A;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-soft-white overflow-x-hidden">
+
+    <!-- Navbar Sticky & Transparent -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 navbar-transparent transition-all duration-300 py-4 md:py-5">
+        <div class="container mx-auto px-5 md:px-10 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-hand-holding-heart text-teal-primary text-2xl md:text-3xl"></i>
+                <h1 class="text-white font-bold text-xl md:text-2xl tracking-tight">Khitan Centre <span class="text-teal-light">Uwais Al Qarni</span></h1>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-white font-medium">
+                <a href="#home" class="hover:text-teal-light transition">Beranda</a>
+                <a href="#layanan" class="hover:text-teal-light transition">Layanan</a>
+                <a href="#tentang" class="hover:text-teal-light transition">Tentang</a>
+                <a href="#galeri" class="hover:text-teal-light transition">Galeri</a>
+                <a href="#kontak" class="hover:text-teal-light transition">Kontak</a>
+            </nav>
+            <button class="md:hidden text-white text-2xl focus:outline-none" id="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- Mobile menu dropdown sederhana -->
+            <div id="mobile-menu" class="fixed top-16 left-0 w-full bg-navy-blue bg-opacity-95 backdrop-blur-md py-5 px-6 flex flex-col gap-4 text-white font-medium text-lg transform -translate-y-full transition-transform duration-300 z-40 rounded-b-2xl shadow-xl md:hidden">
+                <a href="#home" class="hover:text-teal-light py-2 border-b border-white/20">Beranda</a>
+                <a href="#layanan" class="hover:text-teal-light py-2 border-b border-white/20">Layanan</a>
+                <a href="#tentang" class="hover:text-teal-light py-2 border-b border-white/20">Tentang</a>
+                <a href="#galeri" class="hover:text-teal-light py-2 border-b border-white/20">Galeri</a>
+                <a href="#kontak" class="hover:text-teal-light py-2">Kontak</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section dengan animasi teks muncul -->
+    <section id="home" class="min-h-screen flex items-center relative pt-24 md:pt-32 pb-16 overflow-hidden bg-gradient-to-br from-navy-blue via-teal-dark to-teal-primary">
+        <!-- background pattern halus -->
+        <div class="absolute inset-0 opacity-10 bg-[url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAGY4ATytq0jJ--0O8d5YzemzW0x1soU6WILs9neM-itelavjcNeaqlKwCyb-gDWiYK64Oi4ym7R6f5rdoscayLhVMg_6WW6j___VY7qGZA4yeE161W1cKovol7U8SlJ8y6Tf0I=w203-h152-k-no')]"></div>
+        <div class="container mx-auto px-5 md:px-10 relative z-10 text-white text-center md:text-left">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-lg">
+                        Sunat Modern <span class="text-teal-light">Tanpa Sakit & Jahitan</span>
+                    </h1>
+                    <p class="text-lg md:text-xl mt-6 text-teal-light/90 max-w-lg mx-auto md:mx-0">
+                        Metode Terkini (Laser/Klamp) • Proses Cepat • Tanpa Suntik • Tim Medis Profesional.
+                    </p>
+                    <div class="mt-8 flex flex-wrap justify-center md:justify-start gap-5">
+                        <a href="#kontak" class="btn-expand bg-teal-primary hover:bg-teal-dark text-white font-bold py-3 px-8 rounded-full shadow-lg inline-flex items-center gap-2 transition-all duration-300">
+                            <i class="fas fa-calendar-check"></i> Konsultasi Gratis
+                        </a>
+                        <a href="#layanan" class="btn-expand bg-white/20 backdrop-blur-sm hover:bg-white/30 border border-white/40 text-white font-semibold py-3 px-6 rounded-full inline-flex items-center gap-2 transition-all duration-300">
+                            <i class="fas fa-info-circle"></i> Lihat Layanan
+                        </a>
+                    </div>
+                    <!-- mini stats -->
+                    <div class="flex gap-6 mt-10 justify-center md:justify-start text-white/80 text-sm">
+                        <div><i class="fas fa-smile-wink text-teal-light mr-1"></i> 2.500+ Pasien Puas</div>
+                        <div><i class="fas fa-star text-yellow-300 mr-1"></i> 4.9 Rating Google</div>
+                    </div>
+                </div>
+                <div data-aos="fade-left" data-aos-duration="1200" class="flex justify-center">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGY4ATytq0jJ--0O8d5YzemzW0x1soU6WILs9neM-itelavjcNeaqlKwCyb-gDWiYK64Oi4ym7R6f5rdoscayLhVMg_6WW6j___VY7qGZA4yeE161W1cKovol7U8SlJ8y6Tf0I=w203-h152-k-no" alt="Ilustrasi Khitan Modern" class="rounded-2xl shadow-2xl w-80 md:w-full max-w-md border-4 border-white/30">
+                </div>
+            </div>
+        </div>
+        <!-- gelombang dekorasi -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+            <svg class="relative block w-full h-12 md:h-16" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.11,153.64,108.82,212.36,95.8,287.58,79.31,348.78,66.94,321.39,56.44Z" fill="#F8FAFC"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Layanan Section (Kartu dengan efek hover + AOS) -->
+    <section id="layanan" class="py-20 px-5 md:px-10 bg-soft-white">
+        <div class="container mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-teal-primary font-semibold tracking-wide"><i class="fas fa-stethoscope mr-2"></i> Layanan Unggulan</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-navy-blue mt-2">Metode Khitan Terbaik untuk Buah Hati</h2>
+                <p class="text-gray-600 mt-4">Tanpa rasa takut, tanpa rasa sakit, pasca operasi cepat pulih.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Kartu 1 -->
+                <div class="service-card bg-white rounded-2xl p-6 shadow-md border border-teal-light/30" data-aos="zoom-in-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-teal-primary/10 rounded-full flex items-center justify-center mb-5">
+                        <i class="fas fa-bolt text-teal-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-blue">Metode Laser<br>(Smart Klamp)</h3>
+                    <p class="text-gray-500 mt-3">Teknologi mutakhir, tanpa jahitan, perdarahan minimal, dan proses hanya 15 menit.</p>
+                    <div class="mt-5 text-teal-primary font-semibold">✨ Presisi Tinggi</div>
+                </div>
+                <!-- Kartu 2 -->
+                <div class="service-card bg-white rounded-2xl p-6 shadow-md border border-teal-light/30" data-aos="zoom-in-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-teal-primary/10 rounded-full flex items-center justify-center mb-5">
+                        <i class="fas fa-syringe text-teal-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-blue">Tanpa Suntik<br>(Anestesi Topikal)</h3>
+                    <p class="text-gray-500 mt-3">Krim anestesi modern membuat area mati rasa tanpa rasa nyeri suntikan, sangat ramah anak.</p>
+                    <div class="mt-5 text-teal-primary font-semibold">🍃 Nyaman & Aman</div>
+                </div>
+                <!-- Kartu 3 -->
+                <div class="service-card bg-white rounded-2xl p-6 shadow-md border border-teal-light/30" data-aos="zoom-in-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-teal-primary/10 rounded-full flex items-center justify-center mb-5">
+                        <i class="fas fa-clock text-teal-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-blue">Perawatan Pasca<br>Khitan</h3>
+                    <p class="text-gray-500 mt-3">Kontrol gratis, obat antibiotik, dan konsultasi online via WhatsApp untuk pemulihan cepat.</p>
+                    <div class="mt-5 text-teal-primary font-semibold">💚 24/7 Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Section: Keunggulan -->
+    <section id="tentang" class="py-20 px-5 bg-gradient-to-r from-teal-dark/5 to-white">
+        <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFG0O0lAVsB_YPHHtjoTsoVvsZPSdBACQQ4WAEgYBNqbO1f5MxU94HTL7jYq2MGP3HNU1TACBRGXMDHg3XwaT4ivhGu31L3BggAwT9dVD_o3Lv4PWL31J_Ld1sDWpzT-vO-GwFAQUzF1Rey=w203-h360-k-no" alt="Tim dokter profesional" class="rounded-2xl shadow-xl w-full object-cover">
+            </div>
+            <div data-aos="fade-left">
+                <span class="text-teal-primary font-semibold uppercase tracking-wide"><i class="fas fa-hospital-user mr-1"></i> Tentang Kami</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-navy-blue mt-2">Khitan Centre Uwais Al Qarni</h2>
+                <p class="text-gray-600 mt-4 leading-relaxed">Berpengalaman lebih dari 10 tahun melayani sunat modern untuk anak & dewasa. Kami mengutamakan kenyamanan, keamanan, dan pendekatan ramah anak. Dengan dokter ahli, fasilitas setara rumah sakit, serta metode tanpa jahitan dan tanpa suntik.</p>
+                <ul class="mt-6 space-y-3">
+                    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-teal-primary text-xl"></i> <span>Tim medis tersertifikasi & ramah anak</span></li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-teal-primary text-xl"></i> <span>Ruang operasi steril & private</span></li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-teal-primary text-xl"></i> <span>Harga transparan & promo paket hemat</span></li>
+                    <li class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-teal-primary text-xl"></i> <span>Google Maps rating ★ 4.9 (250+ ulasan)</span></li>
+                </ul>
+                <a href="#kontak" class="inline-block mt-8 bg-teal-primary hover:bg-teal-dark text-white font-semibold py-3 px-7 rounded-full shadow-md transition-all btn-expand">Hubungi Kami →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri Foto: grid 3 kolom desktop, 1 kolom mobile, efek zoom -->
+    <section id="galeri" class="py-20 bg-soft-white px-5">
+        <div class="container mx-auto">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-navy-blue">Galeri Kegiatan & Fasilitas</h2>
+                <p class="text-gray-500 mt-2">Suasana nyaman, tim profesional, dan fasilitas modern.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 gallery-grid">
+                <!-- 6 gambar dengan placeholder estetik + efek zoom -->
+                <div class="gallery-zoom rounded-xl shadow-md" data-aos="zoom-in" data-aos-delay="50">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipNf9RcDNyG-GGZOUqptYzUFkhUVKA2lDLK30TBF=w203-h270-k-no" alt="Ruang Tindakan" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-zoom rounded-xl shadow-md" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAE0uJ4UBciPce4PCPvrSxxSWE_FIrs_0_b3sirnYgjCUlbEHm5-XUfEnBgUDC96sNOPNjCuIBFUUu2KnvK5L_g0IZLKzgXwyImA-8YTco5OaNTaS6eLsskHkyqTV3EfUxF6N7xIJ-zZy36m=s406-k-no" alt="Tim Medis" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-zoom rounded-xl shadow-md" data-aos="zoom-in" data-aos-delay="150">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEg7GJuaBiquaHdJwvXY2yzZ1pJre2-APx8Z1qXGNKmz5-vpXJS-wb5bNQekPyQZJ0ycbmWBKkedCr3JvoJg8jxKL3sjn_Gdr1TfOq_QUAgTiaz4HxDBx-fHmaX7jBGGe84-A6P=s677-k-no" alt="Metode Klamp" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-zoom rounded-xl shadow-md" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGMuKN1q0yR1sxHr0yHG2IdGPnl4WK_o-Znjoyglb2qPdhCdBb0izCZaB_-nApObZiMWKww_4K5Hc0GgZ_CYOOLP5mB3vjUI63spJyTi6MyDg0VQ4LK-zCnf5CxtzROBMsVP31G0z3Ub3Bo=s508-k-no" alt="Ruang Tunggu" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-zoom rounded-xl shadow-md" data-aos="zoom-in" data-aos-delay="250">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipN7MoyYU6nP7sXq1i9ELrK4okiSJYuifcM3hIt8=s508-k-no" alt="Suasana Islami" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-zoom rounded-xl shadow-md" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAH12ExmRUIRAIZXTNIKjDlxg8wOf8n5zMszXwKEa-KOSMt0h3XZumhD4luD6QIru9ERcKAqodLXZvl6bAUtm27riipXE2DD0MZEEeSbMn0_zhUuc_WcaQBD4OtSTieMt3Eb2Pzgl7uMa95V=s677-k-no" alt="Sertifikasi" class="w-full h-64 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak & Peta (Embed Maps) -->
+    <section id="kontak" class="py-20 px-5 bg-white">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl font-bold text-navy-blue">Hubungi & Kunjungi Kami</h2>
+                    <p class="text-gray-500 mt-3">Butuh informasi jadwal khitan atau promo? Tim kami siap membantu 24 jam via WhatsApp.</p>
+                    <div class="mt-8 space-y-5">
+                        <div class="flex items-center gap-4">
+                            <i class="fas fa-map-pin text-teal-primary text-2xl w-8"></i>
+                            <span class="text-gray-700">Jl. Raya Uwais Al Qarni, Kab. Pekalongan / Batang, Jawa Tengah (lihat peta)</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="fas fa-phone-alt text-teal-primary text-2xl w-8"></i>
+                            <span class="text-gray-700">+62 812-3456-7890 (Call/WA)</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i class="far fa-clock text-teal-primary text-2xl w-8"></i>
+                            <span class="text-gray-700">Senin - Sabtu: 08.00 - 17.00 | Minggu & Libur Nasional tutup</span>
+                        </div>
+                    </div>
+                    <div class="mt-8 flex gap-4">
+                        <a href="https://wa.me/6281234567890?text=Halo%20Khitan%20Centre%20Uwais%20Al%20Qarni%2C%20saya%20ingin%20konsultasi%20pendaftaran%20khitan%20modern%20tanpa%20suntik." target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full inline-flex items-center gap-2 transition shadow-lg btn-expand">
+                            <i class="fab fa-whatsapp text-xl"></i> Chat WhatsApp
+                        </a>
+                        <a href="https://maps.app.goo.gl/w2oRbawa8uZMbpym8" target="_blank" class="border border-teal-primary text-teal-primary hover:bg-teal-primary hover:text-white transition-all font-semibold py-3 px-5 rounded-full inline-flex items-center gap-2">
+                            <i class="fas fa-directions"></i> Buka Maps
+                        </a>
+                    </div>
+                </div>
+                <div data-aos="fade-left" class="h-80 md:h-96 rounded-2xl overflow-hidden shadow-xl border-2 border-teal-light">
+                    <!-- Google Maps Embed berdasarkan koordinat yang diberikan (Uwais Al Qarni) dan referensi dari source, plus link goo.gl. kita embed lokasi strategis -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.324211118258!2d109.401643!3d-6.8971992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fdb36a2d0c335%3A0xcecbaa9d524decc6!2sKhitan%20Centre%20Uwais%20Al%20Qarni!5e0!3m2!1sen!2sid!4v1715150000000!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer sederhana -->
+    <footer class="bg-navy-blue text-white py-8 text-center">
+        <p>© 2026 Khitan Centre Uwais Al Qarni - Sunat Modern Terpercaya. <i class="fas fa-heart text-teal-light"></i> Solusi sehat untuk buah hati.</p>
+        <p class="text-sm text-teal-light/60 mt-2">Metode tanpa jahitan, tanpa suntik, dan cepat pulih.</p>
+    </footer>
+
+    <!-- Tombol WhatsApp Mengambang (Floating) dengan animasi pulsing -->
+    <a href="https://wa.me/6281234567890?text=Halo%20Khitan%20Centre%20Uwais%20Al%20Qarni%2C%20saya%20ingin%20konsultasi%20pendaftaran%20khitan%20modern%20tanpa%20suntik." target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white rounded-full p-4 shadow-2xl z-50 flex items-center justify-center btn-wa-float">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Script AOS dan Navbar interaktif + Mobile Menu -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inisialisasi AOS
+        AOS.init({ duration: 800, once: false, offset: 100 });
+        
+        // Navbar transparan ke solid saat scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.remove('navbar-transparent');
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+                navbar.classList.add('navbar-transparent');
+            }
+        });
+        
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let menuOpen = false;
+        menuBtn.addEventListener('click', () => {
+            if (!menuOpen) {
+                mobileMenu.classList.remove('-translate-y-full');
+                mobileMenu.classList.add('translate-y-0');
+                menuOpen = true;
+            } else {
+                mobileMenu.classList.add('-translate-y-full');
+                mobileMenu.classList.remove('translate-y-0');
+                menuOpen = false;
+            }
+        });
+        // close mobile menu after click link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('-translate-y-full');
+                mobileMenu.classList.remove('translate-y-0');
+                menuOpen = false;
+            });
+        });
+        
+        // Menambahkan efek smooth pada links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
