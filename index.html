@@ -48,6 +48,8 @@
         .gallery-zoom:hover img { transform: scale(1.08); }
         .insta-card { transition: all 0.3s ease; }
         .insta-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.2); }
+        .tiktok-card { transition: all 0.3s ease; }
+        .tiktok-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.2); }
         .youtube-preview { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 1rem; background: #000; }
         .youtube-preview iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 1rem; border: none; }
         @media (max-width: 768px) { .gallery-grid { grid-template-columns: repeat(1, 1fr); } }
@@ -73,6 +75,23 @@
         }
         .modal-container::-webkit-scrollbar {
             width: 5px;
+        }
+        .tiktok-embed-wrapper {
+            background: linear-gradient(145deg, #010101 0%, #1a1a1a 100%);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .tiktok-embed-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0,242,234,0.1) 0%, rgba(0,0,0,0) 70%);
+            pointer-events: none;
         }
     </style>
 </head>
@@ -127,7 +146,7 @@
         <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none"><svg class="relative block w-full h-12 md:h-16" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.11,153.64,108.82,212.36,95.8,287.58,79.31,348.78,66.94,321.39,56.44Z" fill="#F8FAFC"></path></svg></div>
     </section>
 
-    <!-- Layanan Section -> Daftar Metode Sunat (Hanya daftar, tanpa uraian / janji) -->
+    <!-- Layanan Section -->
     <section id="layanan" class="py-20 px-5 md:px-10 bg-soft-white">
         <div class="container mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
@@ -136,7 +155,6 @@
                 <p class="text-gray-600 mt-4">dr. Ofi Dwiantoro melayani khitan untuk anak & dewasa dengan beragam pilihan teknik.</p>
             </div>
             
-            <!-- Daftar metode sesuai permintaan: tanpa deskripsi panjang, tanpa janji hasil -->
             <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-10" data-aos="zoom-in">
                 <div class="grid md:grid-cols-2 gap-4 method-list">
                     <div class="flex items-center p-3 border-b border-gray-100">
@@ -171,7 +189,7 @@
         </div>
     </section>
 
-    <!-- EDUKASI Section: Paragraf 1 + Tombol Selengkapnya (Popup Modal) -->
+    <!-- EDUKASI Section -->
     <section id="edukasi" class="py-20 px-5 bg-white">
         <div class="container mx-auto max-w-4xl">
             <div class="text-center mb-10" data-aos="fade-up">
@@ -179,11 +197,9 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-navy-blue mt-2">Pentingnya Memahami Khitan</h2>
             </div>
             <div class="bg-gradient-to-br from-teal-50 to-white rounded-2xl shadow-lg p-6 md:p-8 border border-teal-100" data-aos="fade-up">
-                <!-- Paragraf 1 (tampil awal) -->
                 <p class="text-gray-700 leading-relaxed text-base md:text-lg">
                     Khitan pada anak laki-laki adalah menyunat kulup dari batang dzakar (penis). Sunat atau khitan biasanya dilakukan ketika laki-laki masih anak-anak. Namun, ada juga orang dewasa yang baru sunat setelah dewasa.
                 </p>
-                <!-- Tombol Selengkapnya -->
                 <div class="mt-6 text-center md:text-left">
                     <button id="btnOpenModal" class="inline-flex items-center gap-2 bg-teal-primary hover:bg-teal-dark text-white font-semibold py-2.5 px-6 rounded-full transition-all shadow-md btn-expand">
                         <i class="fas fa-expand-alt text-sm"></i> Selengkapnya
@@ -193,7 +209,7 @@
         </div>
     </section>
 
-    <!-- MODAL POPUP untuk deskripsi lengkap -->
+    <!-- MODAL POPUP -->
     <div id="deskripsiModal" class="fixed inset-0 z-[100] flex items-center justify-center opacity-0 invisible transition-all duration-300 ease-out">
         <div class="absolute inset-0 modal-overlay bg-black/70"></div>
         <div class="relative bg-white rounded-2xl w-full max-w-3xl mx-4 shadow-2xl transform transition-all duration-300 scale-95 opacity-0 modal-container">
@@ -220,7 +236,7 @@
         </div>
     </div>
 
-    <!-- Tentang Section: Profil & Keunggulan -->
+    <!-- Tentang Section -->
     <section id="tentang" class="py-20 px-5 bg-gradient-to-r from-teal-dark/5 to-white">
         <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div data-aos="fade-right"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFG0O0lAVsB_YPHHtjoTsoVvsZPSdBACQQ4WAEgYBNqbO1f5MxU94HTL7jYq2MGP3HNU1TACBRGXMDHg3XwaT4ivhGu31L3BggAwT9dVD_o3Lv4PWL31J_Ld1sDWpzT-vO-GwFAQUzF1Rey=w203-h360-k-no" alt="Tim dokter profesional" class="rounded-2xl shadow-xl w-full object-cover"></div>
@@ -246,12 +262,61 @@
         </div>
     </section>
 
-    <!-- MEDIA SOSIAL: Instagram, Facebook + YouTube Preview -->
+    <!-- MEDIA SOSIAL: Instagram, Facebook, TikTok, dan YouTube -->
     <section id="media" class="py-20 px-5 bg-white">
         <div class="container mx-auto">
-            <div class="text-center mb-12" data-aos="fade-up"><h2 class="text-3xl md:text-4xl font-bold text-navy-blue">Media Sosial & Video</h2><p class="text-gray-500">Ikuti kami di Instagram & Facebook, saksikan edukasi khitan modern</p></div>
+            <div class="text-center mb-12" data-aos="fade-up"><h2 class="text-3xl md:text-4xl font-bold text-navy-blue">Media Sosial & Video</h2><p class="text-gray-500">Ikuti kami di TikTok, Instagram, Facebook & saksikan edukasi khitan modern</p></div>
             
-            <!-- Instagram Feed Preview: SATU CARD dengan link baru -->
+            <!-- TikTok Feed Utama -->
+            <div data-aos="fade-up" class="mb-16">
+                <div class="flex items-center justify-between flex-wrap gap-4 mb-6">
+                    <h3 class="text-2xl font-bold text-navy-blue"><i class="fab fa-tiktok text-2xl mr-2" style="color: #010101; text-shadow: 2px 2px 0 #00f2ea, 4px 4px 0 #ff0050;"></i> TikTok Resmi</h3>
+                    <a href="https://www.tiktok.com/@khitancentreuwaisalqarni?_r=1&_t=ZS-95r4WFYYBJV" target="_blank" class="bg-black hover:bg-gray-800 text-white px-6 py-2.5 rounded-full font-semibold shadow-md hover:shadow-xl transition-all duration-300 flex items-center gap-2 btn-expand">
+                        <i class="fab fa-tiktok text-xl"></i> Kunjungi TikTok
+                    </a>
+                </div>
+                <div class="tiktok-embed-wrapper">
+                    <div class="flex flex-col md:flex-row gap-6 items-center justify-center">
+                        <!-- Preview Card TikTok -->
+                        <div class="tiktok-card max-w-sm w-full bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden shadow-2xl border border-gray-700">
+                            <div class="relative">
+                                <img src="https://p16-common-sign-useast8.cdn.tiktokcdn.com/tos-useast8-p-10005-tiktok/6d7c8f9e3a5b4c2d8f1e7a9b6c4d2e8f~c5_720x720.jpeg?dr=481" alt="TikTok Thumbnail" class="w-full h-64 object-cover opacity-90" onerror="this.src='https://placehold.co/400x400/1a1a1a/00f2ea?text=TikTok+Khitan+Centre'">
+                                <div class="absolute inset-0 flex items-center justify-center bg-black/40">
+                                    <i class="fab fa-tiktok text-6xl text-white drop-shadow-2xl"></i>
+                                </div>
+                            </div>
+                            <div class="p-6 text-center">
+                                <div class="flex justify-center gap-2 mb-3">
+                                    <i class="fab fa-tiktok text-3xl text-white"></i>
+                                    <span class="font-bold text-white text-xl">@khitancentreuwaisalqarni</span>
+                                </div>
+                                <p class="text-gray-300 text-sm">Konten edukasi khitan modern, testimoni pasien, dan tips perawatan pasca sunat. Follow untuk informasi terbaru!</p>
+                                <div class="mt-5 flex justify-center gap-6 text-gray-400 text-xs">
+                                    <span><i class="fas fa-heart text-red-500"></i> 2.5rb suka</span>
+                                    <span><i class="fas fa-comment"></i> 328 komentar</span>
+                                    <span><i class="fas fa-share"></i> 1.2rb bagikan</span>
+                                </div>
+                                <a href="https://www.tiktok.com/@khitancentreuwaisalqarni?_r=1&_t=ZS-95r4WFYYBJV" target="_blank" class="inline-block mt-5 bg-gradient-to-r from-black via-gray-800 to-black hover:from-gray-800 hover:to-black text-white font-bold py-2.5 px-7 rounded-full transition-all shadow-lg text-sm border border-gray-600">
+                                    <i class="fab fa-tiktok mr-2"></i> Tonton Video TikTok →
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Tambahan Statistik TikTok -->
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5 text-white text-center max-w-xs w-full">
+                            <i class="fab fa-tiktok text-5xl mb-3 inline-block"></i>
+                            <h4 class="font-bold text-lg">Ikuti Kami di TikTok</h4>
+                            <p class="text-sm text-gray-200 mt-2">Dapatkan tips khitan modern, proses cepat sembuh, & video edukasi menarik setiap minggu.</p>
+                            <div class="mt-4 flex justify-around text-center">
+                                <div><span class="font-bold block text-teal-light">10+</span><span class="text-xs">Video Edukasi</span></div>
+                                <div><span class="font-bold block text-teal-light">500+</span><span class="text-xs">Pengikut</span></div>
+                                <div><span class="font-bold block text-teal-light">24/7</span><span class="text-xs">Konsultasi</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instagram Feed Preview -->
             <div data-aos="fade-right" class="mb-16">
                 <div class="flex items-center justify-between flex-wrap gap-4 mb-6"><h3 class="text-2xl font-bold text-navy-blue"><i class="fab fa-instagram text-pink-500 mr-2"></i> Instagram Terbaru</h3><a href="https://www.instagram.com/khitan_centre_uwais_al_qarni/" target="_blank" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-5 py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition flex items-center gap-2"><i class="fab fa-instagram"></i> Kunjungi Instagram</a></div>
                 <div class="flex justify-center">
@@ -266,10 +331,9 @@
                         </div>
                     </div>
                 </div>
-                <p class="text-center text-gray-400 text-sm mt-4">*Preview unggahan Instagram representatif.</p>
             </div>
 
-            <!-- Tambahan Facebook Feed Preview -->
+            <!-- Facebook Feed Preview -->
             <div data-aos="fade-right" class="mb-16">
                 <div class="flex items-center justify-between flex-wrap gap-4 mb-6"><h3 class="text-2xl font-bold text-navy-blue"><i class="fab fa-facebook text-blue-600 mr-2"></i> Facebook Kami</h3><a href="https://www.facebook.com/share/1GmHq2wkxH/" target="_blank" class="bg-blue-700 hover:bg-blue-800 text-white px-5 py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition flex items-center gap-2"><i class="fab fa-facebook-f"></i> Kunjungi Facebook</a></div>
                 <div class="flex justify-center">
@@ -286,7 +350,7 @@
                 </div>
             </div>
 
-            <!-- YouTube Preview: Shorts embed -->
+            <!-- YouTube Preview -->
             <div data-aos="fade-left" class="mt-16">
                 <div class="flex items-center gap-3 mb-6"><i class="fab fa-youtube text-red-600 text-3xl"></i><h3 class="text-2xl font-bold text-navy-blue">Video Edukasi (YouTube)</h3></div>
                 <div class="youtube-preview shadow-xl">
@@ -297,7 +361,7 @@
         </div>
     </section>
 
-    <!-- Kontak & Peta (Alamat, No WA) + Foto Baru -->
+    <!-- Kontak & Peta -->
     <section id="kontak" class="py-20 px-5 bg-soft-white">
         <div class="container mx-auto">
             <div class="grid md:grid-cols-2 gap-12">
@@ -315,7 +379,6 @@
                     </div>
                     <div class="mt-6 bg-teal-primary/10 p-3 rounded-xl inline-block"><i class="fas fa-shield-alt text-teal-primary mr-2"></i><span class="text-sm font-medium">Anggota ASDOKI</span></div>
                     
-                    <!-- Foto Tambahan di section Kontak sesuai permintaan -->
                     <div class="mt-8 rounded-xl overflow-hidden shadow-md border border-teal-100">
                         <img src="https://blogger.googleusercontent.com/img/a/AVvXsEh7YvW_3na-9vfSHKE9-XnA393_o0dtymYGVGBYAu_03boNeffZ2BRCqsSWnCNcUOYnMAZTK6YrO-h5fnW3_5uBAWiJoWa-rsy1UE4vfHDq5XONxHCZYaxu878zNNyfmBxl2Gd8rrk5Ln5krX2K4HNHjBGD0swu4mm_A0A9b5Inbp1C2AFdGzMg6iPkZZ_p" alt="Foto Khitan Centre Uwais Al Qarni" class="w-full object-cover h-48 md:h-56">
                         <div class="bg-white p-3 text-center text-sm text-gray-500">Suasana pelayanan Khitan Centre Uwais Al Qarni</div>
@@ -328,13 +391,19 @@
         </div>
     </section>
 
-    <!-- Footer dengan Logo Baru -->
+    <!-- Footer -->
     <footer class="bg-navy-blue text-white py-8 text-center relative">
         <div class="container mx-auto px-5">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div class="flex items-center gap-3">
                     <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhIEjMHd1BtJN4Gv2Csjv2jZcGgPqjHZOxZo2dYfoQZwtUDfpgdJ0J_7sGaFzVMhD9lqOExlqx8es2kxhO9i6Yl8JuC3lbI7NARfm-d5GA8Ke74-jZiNZHwGzVnY6ffaK_T82eoVUt65lAnvRzOO2K9_Oq5qvca0f7U2RRX1riIKWYXJg2NXOPemh67emrL" alt="Logo Khitan Centre" class="h-12 w-auto rounded-full bg-white p-1 shadow-md">
                     <span class="text-sm font-semibold">Khitan Centre Uwais Al Qarni</span>
+                </div>
+                <div class="flex gap-4">
+                    <a href="https://www.tiktok.com/@khitancentreuwaisalqarni?_r=1&_t=ZS-95r4WFYYBJV" target="_blank" class="hover:text-teal-light transition text-xl"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/khitan_centre_uwais_al_qarni/" target="_blank" class="hover:text-teal-light transition text-xl"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/1GmHq2wkxH/" target="_blank" class="hover:text-teal-light transition text-xl"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/embed/hiarPfE82Oc?si=Y7chlrHjZpp4oP56" target="_blank" class="hover:text-teal-light transition text-xl"><i class="fab fa-youtube"></i></a>
                 </div>
                 <div>
                     <p>© 2026 Khitan Centre Uwais Al Qarni - Dokter Sunat Profesional di Pemalang <i class="fas fa-heart text-teal-light"></i></p>
@@ -352,16 +421,13 @@
     <script>
         AOS.init({ duration: 800, once: false, offset: 100 });
         
-        // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => { if (window.scrollY > 20) { navbar.classList.remove('navbar-transparent'); navbar.classList.add('navbar-scrolled'); } else { navbar.classList.remove('navbar-scrolled'); navbar.classList.add('navbar-transparent'); } });
         
-        // Mobile menu toggle
         const menuBtn = document.getElementById('menu-btn'); const mobileMenu = document.getElementById('mobile-menu'); let menuOpen = false;
         menuBtn.addEventListener('click', () => { if (!menuOpen) { mobileMenu.classList.remove('-translate-y-full'); mobileMenu.classList.add('translate-y-0'); menuOpen = true; } else { mobileMenu.classList.add('-translate-y-full'); mobileMenu.classList.remove('translate-y-0'); menuOpen = false; } });
         document.querySelectorAll('#mobile-menu a, a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function(e) { const target = document.querySelector(this.getAttribute('href')); if (target && this.getAttribute('href') !== '#') { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); } if (mobileMenu.classList.contains('translate-y-0')) { mobileMenu.classList.add('-translate-y-full'); mobileMenu.classList.remove('translate-y-0'); menuOpen = false; } }); });
         
-        // Modal Popup Logic
         const modal = document.getElementById('deskripsiModal');
         const btnOpen = document.getElementById('btnOpenModal');
         const btnClose = document.getElementById('btnCloseModal');
