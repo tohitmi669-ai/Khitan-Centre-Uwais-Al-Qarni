@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Khitan Centre Uwais Al Qarni | Sunat Modern Tanpa Sakit - Pemalang</title>
+    <title>Khitan Centre Uwais Al Qarni | Dokter Sunat Profesional Pemalang</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- AOS (Animate On Scroll) CDN -->
@@ -54,6 +54,26 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #E2E8F0; }
         ::-webkit-scrollbar-thumb { background: #1A7F7A; border-radius: 10px; }
+        .method-list li {
+            transition: all 0.2s ease;
+        }
+        .method-list li:hover {
+            transform: translateX(5px);
+            color: #1A7F7A;
+        }
+        /* Modal Popup Style */
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(4px);
+            transition: all 0.3s ease;
+        }
+        .modal-container {
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+        .modal-container::-webkit-scrollbar {
+            width: 5px;
+        }
     </style>
 </head>
 <body class="bg-soft-white overflow-x-hidden">
@@ -72,6 +92,7 @@
                 <a href="#galeri" class="hover:text-teal-light transition">Galeri</a>
                 <a href="#media" class="hover:text-teal-light transition">Media Sosial</a>
                 <a href="#kontak" class="hover:text-teal-light transition">Kontak</a>
+                <a href="#edukasi" class="hover:text-teal-light transition">Edukasi</a>
             </nav>
             <button class="md:hidden text-white text-2xl focus:outline-none" id="menu-btn"><i class="fas fa-bars"></i></button>
             <div id="mobile-menu" class="fixed top-16 left-0 w-full bg-navy-blue bg-opacity-95 backdrop-blur-md py-5 px-6 flex flex-col gap-4 text-white font-medium text-lg transform -translate-y-full transition-transform duration-300 z-40 rounded-b-2xl shadow-xl md:hidden">
@@ -80,7 +101,8 @@
                 <a href="#tentang" class="hover:text-teal-light py-2 border-b border-white/20">Tentang</a>
                 <a href="#galeri" class="hover:text-teal-light py-2 border-b border-white/20">Galeri</a>
                 <a href="#media" class="hover:text-teal-light py-2 border-b border-white/20">Media Sosial</a>
-                <a href="#kontak" class="hover:text-teal-light py-2">Kontak</a>
+                <a href="#kontak" class="hover:text-teal-light py-2 border-b border-white/20">Kontak</a>
+                <a href="#edukasi" class="hover:text-teal-light py-2">Edukasi</a>
             </div>
         </div>
     </header>
@@ -91,13 +113,13 @@
         <div class="container mx-auto px-5 md:px-10 relative z-10 text-white text-center md:text-left">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div data-aos="fade-up" data-aos-duration="1000">
-                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-lg">Sunat Modern <span class="text-teal-light">Dengan Minimalisir sakit dan Nyeri</span></h1>
-                    <p class="text-lg md:text-xl mt-6 text-teal-light/90 max-w-lg mx-auto md:mx-0">Metode Laser/Klamp/Lem • Tanpa Suntik • Tim Medis Profesional (dr. Ofi Dwiantoro) • Jaringan Sunat Nusantara</p>
+                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-lg">Dokter Sunat Profesional <span class="text-teal-light">di Pemalang</span></h1>
+                    <p class="text-lg md:text-xl mt-6 text-teal-light/90 max-w-lg mx-auto md:mx-0">dr. Ofi Dwiantoro • Tim Medis Berpengalaman • Jaringan Sunat Nusantara</p>
                     <div class="mt-8 flex flex-wrap justify-center md:justify-start gap-5">
                         <a href="#kontak" class="btn-expand bg-teal-primary hover:bg-teal-dark text-white font-bold py-3 px-8 rounded-full shadow-lg inline-flex items-center gap-2"><i class="fas fa-calendar-check"></i> Konsultasi Gratis</a>
                         <a href="#layanan" class="btn-expand bg-white/20 backdrop-blur-sm hover:bg-white/30 border border-white/40 text-white font-semibold py-3 px-6 rounded-full inline-flex items-center gap-2"><i class="fas fa-info-circle"></i> Lihat Layanan</a>
                     </div>
-                    <div class="flex gap-6 mt-10 justify-center md:justify-start text-white/80 text-sm"><div><i class="fas fa-smile-wink text-teal-light mr-1"></i> 2.500+ Pasien Puas</div><div><i class="fas fa-star text-yellow-300 mr-1"></i> 4.9 Rating Google</div></div>
+                    <div class="flex gap-6 mt-10 justify-center md:justify-start text-white/80 text-sm"><div><i class="fas fa-smile-wink text-teal-light mr-1"></i> 2.500+ Pasien</div><div><i class="fas fa-star text-yellow-300 mr-1"></i> 4.9 Rating Google</div></div>
                 </div>
                 <div data-aos="fade-left" class="flex justify-center"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGY4ATytq0jJ--0O8d5YzemzW0x1soU6WILs9neM-itelavjcNeaqlKwCyb-gDWiYK64Oi4ym7R6f5rdoscayLhVMg_6WW6j___VY7qGZA4yeE161W1cKovol7U8SlJ8y6Tf0I=w203-h152-k-no" alt="Ilustrasi Khitan Modern" class="rounded-2xl shadow-2xl w-80 md:w-full max-w-md border-4 border-white/30"></div>
             </div>
@@ -105,25 +127,106 @@
         <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none"><svg class="relative block w-full h-12 md:h-16" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.11,153.64,108.82,212.36,95.8,287.58,79.31,348.78,66.94,321.39,56.44Z" fill="#F8FAFC"></path></svg></div>
     </section>
 
-    <!-- Layanan Section -->
+    <!-- Layanan Section -> Daftar Metode Sunat (Hanya daftar, tanpa uraian / janji) -->
     <section id="layanan" class="py-20 px-5 md:px-10 bg-soft-white">
         <div class="container mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up"><span class="text-teal-primary font-semibold tracking-wide"><i class="fas fa-stethoscope mr-2"></i> Layanan Unggulan</span><h2 class="text-3xl md:text-4xl font-bold text-navy-blue mt-2">Metode Khitan Terbaik untuk Buah Hati</h2><p class="text-gray-600 mt-4">Sunat Lem, Klamp, Laser & dewasa. Minimal nyeri, cepat pulih.</p></div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="service-card bg-white rounded-2xl p-6 shadow-md" data-aos="zoom-in-up" data-aos-delay="100"><div class="w-16 h-16 bg-teal-primary/10 rounded-full flex items-center justify-center mb-5"><i class="fas fa-bolt text-teal-primary text-3xl"></i></div><h3 class="text-xl font-bold text-navy-blue">Metode Laser & Smart Klamp</h3><p class="text-gray-500 mt-3">Teknologi mutakhir, tanpa jahitan, perdarahan minimal, hanya 15 menit.</p><div class="mt-5 text-teal-primary font-semibold">✨ Presisi Tinggi</div></div>
-                <div class="service-card bg-white rounded-2xl p-6 shadow-md" data-aos="zoom-in-up" data-aos-delay="200"><div class="w-16 h-16 bg-teal-primary/10 rounded-full flex items-center justify-center mb-5"><i class="fas fa-syringe text-teal-primary text-3xl"></i></div><h3 class="text-xl font-bold text-navy-blue">Tanpa Suntik & Sunat Lem</h3><p class="text-gray-500 mt-3">Anestesi topikal + lem bedah modern, tanpa jahitan & perban, langsung aktivitas.</p><div class="mt-5 text-teal-primary font-semibold">🍃 Nyaman & Aman</div></div>
-                <div class="service-card bg-white rounded-2xl p-6 shadow-md" data-aos="zoom-in-up" data-aos-delay="300"><div class="w-16 h-16 bg-teal-primary/10 rounded-full flex items-center justify-center mb-5"><i class="fas fa-clock text-teal-primary text-3xl"></i></div><h3 class="text-xl font-bold text-navy-blue">Khitan Dewasa & Fimosis</h3><p class="text-gray-500 mt-3">Teknik khusus Esu Sealer, penanganan anak gemuk & fimosis. Pemulihan cepat.</p><div class="mt-5 text-teal-primary font-semibold">💚 24/7 Support</div></div>
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-teal-primary font-semibold tracking-wide"><i class="fas fa-stethoscope mr-2"></i> Metode Sunat Profesional</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-navy-blue mt-2">Dokter Sunat di Pemalang Menguasai Berbagai Metode</h2>
+                <p class="text-gray-600 mt-4">dr. Ofi Dwiantoro melayani khitan untuk anak & dewasa dengan beragam pilihan teknik.</p>
+            </div>
+            
+            <!-- Daftar metode sesuai permintaan: tanpa deskripsi panjang, tanpa janji hasil -->
+            <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-10" data-aos="zoom-in">
+                <div class="grid md:grid-cols-2 gap-4 method-list">
+                    <div class="flex items-center p-3 border-b border-gray-100">
+                        <i class="fas fa-check-circle text-teal-primary text-xl mr-4"></i>
+                        <span class="text-gray-800 font-medium text-lg">Khitan / Sunat Konvensional</span>
+                    </div>
+                    <div class="flex items-center p-3 border-b border-gray-100">
+                        <i class="fas fa-check-circle text-teal-primary text-xl mr-4"></i>
+                        <span class="text-gray-800 font-medium text-lg">Khitan / Sunat Cauter</span>
+                    </div>
+                    <div class="flex items-center p-3 border-b border-gray-100">
+                        <i class="fas fa-check-circle text-teal-primary text-xl mr-4"></i>
+                        <span class="text-gray-800 font-medium text-lg">Khitan / Sunat Klem</span>
+                    </div>
+                    <div class="flex items-center p-3 border-b border-gray-100">
+                        <i class="fas fa-check-circle text-teal-primary text-xl mr-4"></i>
+                        <span class="text-gray-800 font-medium text-lg">Khitan / Sunat Lem</span>
+                    </div>
+                    <div class="flex items-center p-3 border-b border-gray-100 md:border-b-0">
+                        <i class="fas fa-check-circle text-teal-primary text-xl mr-4"></i>
+                        <span class="text-gray-800 font-medium text-lg">Khitan / Sunat Dewasa</span>
+                    </div>
+                    <div class="flex items-center p-3">
+                        <i class="fas fa-comments text-teal-primary text-xl mr-4"></i>
+                        <span class="text-gray-800 font-medium text-lg">Konsultasi Khitan / Sunat</span>
+                    </div>
+                </div>
+                <div class="mt-8 text-center text-sm text-gray-500 italic border-t pt-6">
+                    <i class="fas fa-user-md mr-1 text-teal-primary"></i> Tersedia konsultasi sebelum tindakan untuk memilih metode yang sesuai.
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Tentang Section: Keunggulan (dengan data observasi lengkap) -->
+    <!-- EDUKASI Section: Paragraf 1 + Tombol Selengkapnya (Popup Modal) -->
+    <section id="edukasi" class="py-20 px-5 bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-10" data-aos="fade-up">
+                <span class="text-teal-primary font-semibold tracking-wide"><i class="fas fa-book-open mr-2"></i> Edukasi Khitan</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-navy-blue mt-2">Pentingnya Memahami Khitan</h2>
+            </div>
+            <div class="bg-gradient-to-br from-teal-50 to-white rounded-2xl shadow-lg p-6 md:p-8 border border-teal-100" data-aos="fade-up">
+                <!-- Paragraf 1 (tampil awal) -->
+                <p class="text-gray-700 leading-relaxed text-base md:text-lg">
+                    Khitan pada anak laki-laki adalah menyunat kulup dari batang dzakar (penis). Sunat atau khitan biasanya dilakukan ketika laki-laki masih anak-anak. Namun, ada juga orang dewasa yang baru sunat setelah dewasa.
+                </p>
+                <!-- Tombol Selengkapnya -->
+                <div class="mt-6 text-center md:text-left">
+                    <button id="btnOpenModal" class="inline-flex items-center gap-2 bg-teal-primary hover:bg-teal-dark text-white font-semibold py-2.5 px-6 rounded-full transition-all shadow-md btn-expand">
+                        <i class="fas fa-expand-alt text-sm"></i> Selengkapnya
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL POPUP untuk deskripsi lengkap -->
+    <div id="deskripsiModal" class="fixed inset-0 z-[100] flex items-center justify-center opacity-0 invisible transition-all duration-300 ease-out">
+        <div class="absolute inset-0 modal-overlay bg-black/70"></div>
+        <div class="relative bg-white rounded-2xl w-full max-w-3xl mx-4 shadow-2xl transform transition-all duration-300 scale-95 opacity-0 modal-container">
+            <div class="sticky top-0 bg-white rounded-t-2xl px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                <h3 class="text-xl font-bold text-navy-blue"><i class="fas fa-graduation-cap text-teal-primary mr-2"></i> Informasi Lengkap Khitan</h3>
+                <button id="btnCloseModal" class="text-gray-400 hover:text-red-500 transition text-2xl leading-none">&times;</button>
+            </div>
+            <div class="p-6 md:p-8 space-y-4 text-gray-700 leading-relaxed">
+                <p><strong>Khitan pada anak laki-laki adalah menyunat kulup dari batang dzakar (penis). Sunat atau khitan biasanya dilakukan ketika laki-laki masih anak-anak. Namun, ada juga orang dewasa yang baru sunat setelah dewasa.</strong></p>
+                <p>Tujuan khitan (sunat) secara syariah selain mengikuti sunnah Rasulullah dan Nabi Ibrahim, juga karena menghindari adanya najis pada anggota badan saat shalat. Karena, tidak sah shalat seseorang apabila ada najis yang melekat pada badannya. Dengan khitan, maka najis kencing yang melihat disekitar kulfa (kulup) akan jauh lebih mudah dihilangkan bersamaan dengan saat seseorang membasuh kemaluannya setelah buang air kecil. Sedangkan, manfaat khitan dari sudut kesehatan terutama bagi laki-laki cukup banyak. Antara lain:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Lebih higienis (sehat)</strong> karena lebih mudah membersihkan kemaluan dari pada yang tidak sunat. Memang, mencuci dan membasuh kotoran yang ada di bawah kulit depan kemaluan orang yang tidak disunat itu mudah, namun khitan dapat mengurangi risiko infeksi bekas air kencing. Menurut penelitian medis, infeksi bekas urine lebih banyak diderita orang yang tidak disunat. Infeksi yang akut pada usia muda akan berakibat pada masalah ginjal di kemudian hari.</li>
+                    <li><strong>Mengurangi risiko infeksi</strong> yang berasal dari transmisi seksual. Pria yang dikhitan memiliki risiko lebih rendah dari infeksi akibat hubungan seksual, termasuk HIV/AIDS. Walaupun seks yang aman tetap penting.</li>
+                    <li><strong>Mencegah problem terkait dengan penis.</strong> Terkadang, kulit muka penis yang tidak dikhitan akan lengket yang sulit dipisah. Dan ini dapat berakibat radang pada kepala penis (hasyafah).</li>
+                    <li><strong>Mencegah kanker penis (penile cancer).</strong> Kanker penis tergolong jarang terjadi, apalagi pada penis yang disunat. Disamping itu, kanker leher rahim (cervical cancer) lebih jarang terjadi pada wanita yang bersuamikan pria yang dikhitan.</li>
+                </ul>
+                <p>Proses pemulihan sunat sampai sembuh total biasanya membutuhkan waktu sekitar 10 hari sampai satu bulan. Tapi, Anda perlu waspada jika selama proses pemulihan sunat muncul tanda-tanda infeksi, seperti: Perdarahan tidak berhenti, Keluar cairan bernanah atau berbau tidak sedap dari ujung penis, urine tidak bisa keluar secara normal selang 12 jam setelah disunat, Buang air kecil beberapa hari setelah disunat terasa sakit, Penis masih bengkak disertai demam setelah dua minggu disunat.</p>
+                <p><strong>Memilih tempat sunat terbaik aman, nyaman, dan terpercaya adalah sangat penting.</strong> Letak keberhasilan dari berkhitan adalah dari sejauh apa pengalaman seorang operator pada tempat layanan yang ayah ibu pilih. Jika ayah ibu tidak hati – hati dalam memilih tempat sunat akan terjadi hal – hal yang tidak kita inginkan seperti proses sunat yang panjang, proses penyembuhan yang membutuhkan waktu sangat lama, atau terjadi infeksi pasca berkhitan. Carilah tempat sunat dengan dokter sunat Professional dan Friendly!</p>
+                <p>Mencari tempat sunat satu paket Professional dan Friendly di Pemalang adalah mudah, tetapi juga tidak mudah – mudah amat. Pertama kali yang akan dinilai dari jagoan yang akan berkhitan tentu adalah dokter sunatnya, apakah dokternya friendly? Penting sekali memilih tempat sunat dengan dokter sunat friendly. Dokter dianggap sahabat dan teman saat berkhitan, dengan dokter sunat yang friendly jagoan yang berkhitan akan menganggap bahwa dokter tersebut juga professional. Orangtua maupun jagoan yang akan berkhitan percaya penuh akan sikap dokter yang friendly. Tidak heran jika jagoan yang tadinya takut akan sunat, semakin percaya diri bahkan saat sunat berani sendiri tanpa harus ditemani ayah ibunya.</p>
+            </div>
+            <div class="sticky bottom-0 bg-gray-50 rounded-b-2xl px-6 py-4 border-t border-gray-200 text-right">
+                <button id="btnCloseModalBottom" class="bg-teal-primary hover:bg-teal-dark text-white font-semibold px-6 py-2 rounded-full transition-all shadow btn-expand"><i class="fas fa-check mr-2"></i> Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tentang Section: Profil & Keunggulan -->
     <section id="tentang" class="py-20 px-5 bg-gradient-to-r from-teal-dark/5 to-white">
         <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div data-aos="fade-right"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFG0O0lAVsB_YPHHtjoTsoVvsZPSdBACQQ4WAEgYBNqbO1f5MxU94HTL7jYq2MGP3HNU1TACBRGXMDHg3XwaT4ivhGu31L3BggAwT9dVD_o3Lv4PWL31J_Ld1sDWpzT-vO-GwFAQUzF1Rey=w203-h360-k-no" alt="Tim dokter profesional" class="rounded-2xl shadow-xl w-full object-cover"></div>
             <div data-aos="fade-left"><span class="text-teal-primary font-semibold uppercase tracking-wide"><i class="fas fa-hospital-user mr-1"></i> Tentang Kami</span><h2 class="text-3xl md:text-4xl font-bold text-navy-blue mt-2">Khitan Centre Uwais Al Qarni</h2>
-                <p class="text-gray-600 mt-4 leading-relaxed"><strong>Anggota resmi Jaringan Sunat Nusantara (JSN)</strong> – Berpengalaman lebih dari 10 tahun melayani khitan modern untuk anak & dewasa di Pemalang. Dipimpin oleh <strong>dr. Ofi Dwiantoro</strong>, tim medis profesional menawarkan metode modern: sunat lem, klamp, laser, dan konvensional. Kami unggul dalam penanganan kasus fimosis & anak gemuk dengan teknologi <strong>Esu Sealer</strong>.</p>
-                <ul class="mt-6 space-y-3"><li class="flex items-center gap-3"><i class="fas fa-check-circle text-teal-primary text-xl"></i> <span>Tim dokter & paramedis tersertifikasi</span></li><li class="flex items-center gap-3"><i class="fas fa-check-circle text-teal-primary text-xl"></i> <span>Ruang operasi steril, private & nyaman</span></li><li class="flex items-center gap-3"><i class="fas fa-check-circle text-teal-primary text-xl"></i> <span>Harga transparan, promo paket hemat (Sunat Hemat)</span></li><li class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-teal-primary text-xl"></i> <span>Lokasi strategis Pemalang | Google 4.9 ⭐</span></li></ul>
+                <p class="text-gray-600 mt-4 leading-relaxed"><strong>Anggota resmi Jaringan Sunat Nusantara (JSN)</strong> – Berpengalaman lebih dari 10 tahun melayani khitan untuk anak & dewasa di Pemalang. Dipimpin oleh <strong>dr. Ofi Dwiantoro</strong>, tim medis profesional menguasai berbagai metode sunat modern dan konvensional, serta penanganan kasus khusus seperti fimosis.</p>
+                <ul class="mt-6 space-y-3"><li class="flex items-center gap-3"><i class="fas fa-check-circle text-teal-primary text-xl"></i> <span>Tim dokter & paramedis tersertifikasi</span></li><li class="flex items-center gap-3"><i class="fas fa-check-circle text-teal-primary text-xl"></i> <span>Ruang operasi steril & nyaman</span></li><li class="flex items-center gap-3"><i class="fas fa-check-circle text-teal-primary text-xl"></i> <span>Konsultasi khitan sebelum tindakan</span></li><li class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-teal-primary text-xl"></i> <span>Lokasi strategis Pemalang | Google 4.9 ⭐</span></li></ul>
                 <a href="#kontak" class="inline-block mt-8 bg-teal-primary hover:bg-teal-dark text-white font-semibold py-3 px-7 rounded-full shadow-md transition-all btn-expand">Hubungi Kami →</a>
             </div>
         </div>
@@ -131,7 +234,7 @@
 
     <!-- Galeri Foto -->
     <section id="galeri" class="py-20 bg-soft-white px-5">
-        <div class="container mx-auto"><div class="text-center mb-12" data-aos="fade-up"><h2 class="text-3xl md:text-4xl font-bold text-navy-blue">Galeri Fasilitas & Kegiatan</h2><p class="text-gray-500 mt-2">Suasana nyaman, tim profesional, metode modern.</p></div>
+        <div class="container mx-auto"><div class="text-center mb-12" data-aos="fade-up"><h2 class="text-3xl md:text-4xl font-bold text-navy-blue">Galeri Fasilitas & Kegiatan</h2><p class="text-gray-500 mt-2">Suasana klinik, tim profesional, dokumentasi kegiatan.</p></div>
             <div class="grid md:grid-cols-3 gap-6 gallery-grid">
                 <div class="gallery-zoom rounded-xl shadow-md"><img src="https://lh3.googleusercontent.com/p/AF1QipNf9RcDNyG-GGZOUqptYzUFkhUVKA2lDLK30TBF=w203-h270-k-no" class="w-full h-64 object-cover"></div>
                 <div class="gallery-zoom rounded-xl shadow-md"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAE0uJ4UBciPce4PCPvrSxxSWE_FIrs_0_b3sirnYgjCUlbEHm5-XUfEnBgUDC96sNOPNjCuIBFUUu2KnvK5L_g0IZLKzgXwyImA-8YTco5OaNTaS6eLsskHkyqTV3EfUxF6N7xIJ-zZy36m=s406-k-no" class="w-full h-64 object-cover"></div>
@@ -143,62 +246,59 @@
         </div>
     </section>
 
-    <!-- MEDIA SOSIAL: Hanya SATU card Instagram + YouTube Preview embed -->
+    <!-- MEDIA SOSIAL: Instagram + YouTube Preview -->
     <section id="media" class="py-20 px-5 bg-white">
         <div class="container mx-auto">
-            <div class="text-center mb-12" data-aos="fade-up"><h2 class="text-3xl md:text-4xl font-bold text-navy-blue">Media Sosial & Video Terbaru</h2><p class="text-gray-500">Ikuti kami di Instagram & saksikan testimoni khitan modern langsung</p></div>
+            <div class="text-center mb-12" data-aos="fade-up"><h2 class="text-3xl md:text-4xl font-bold text-navy-blue">Media Sosial & Video</h2><p class="text-gray-500">Ikuti kami di Instagram & saksikan edukasi khitan modern</p></div>
             
-            <!-- Instagram Feed Preview: SATU CARD SAJA sesuai permintaan -->
+            <!-- Instagram Feed Preview: SATU CARD -->
             <div data-aos="fade-right" class="mb-16">
                 <div class="flex items-center justify-between flex-wrap gap-4 mb-6"><h3 class="text-2xl font-bold text-navy-blue"><i class="fab fa-instagram text-pink-500 mr-2"></i> Instagram Terbaru</h3><a href="https://www.instagram.com/p/DXD7ve3Ec5O/?igsh=MTFwb2R3MGVrYnl4eQ==" target="_blank" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-5 py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition flex items-center gap-2"><i class="fab fa-instagram"></i> Kunjungi Instagram</a></div>
-                <!-- hanya 1 card instagram preview yang menarik -->
                 <div class="flex justify-center">
                     <div class="insta-card max-w-md w-full bg-gray-50 rounded-2xl overflow-hidden shadow-xl border border-gray-200">
                         <img src="https://instagram.fjog3-1.fna.fbcdn.net/v/t51.82787-15/660829689_18032591612797201_292479753961134513_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=Mzg3NDIwMjg1MjE2NDQ4ODc4Mg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTA4MC5zZHIuQzMifQ%3D%3D&_nc_ohc=JU9KxZSlE3AQ7kNvwFaFec1&_nc_oc=AdqRb3mjYyybYdTgMYlSuVFOSziHti5_xiY6xUTN2HFkwjMg7LiTemJw3ovG8BWwVp0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fjog3-1.fna&_nc_gid=hs7Qts1ty6JGiISLzEIvEw&_nc_ss=7a22e&oh=00_Af0ZHPMcgQRkcyxPWFuM8zoi5zp91jv85RJNyCHl-qNyDA&oe=69F2380F" class="w-full h-72 object-cover">
                         <div class="p-5 text-center">
                             <div class="flex justify-center mb-2"><i class="fab fa-instagram text-3xl text-pink-500"></i></div>
-                            <h4 class="font-bold text-navy-blue text-xl">Metode KLAMP Modern Tanpa Sakit</h4>
-                            <p class="text-gray-500 text-sm mt-2">✨ Proses cepat, tanpa jahitan, langsung pulang. Telah melayani 2500+ pasien puas.</p>
+                            <h4 class="font-bold text-navy-blue text-xl">Dokter Sunat Pemalang</h4>
+                            <p class="text-gray-500 text-sm mt-2">Menguasai berbagai metode khitan untuk anak & dewasa. Konsultasi tersedia.</p>
                             <div class="mt-4 flex justify-center gap-4 text-gray-400 text-xs"><span><i class="far fa-heart"></i> 1.234 suka</span><span><i class="far fa-comment"></i> 89 komentar</span></div>
                             <a href="https://www.instagram.com/p/DXD7ve3Ec5O/" target="_blank" class="inline-block mt-4 bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-6 rounded-full transition shadow-md text-sm">Lihat Postingan Asli →</a>
                         </div>
                     </div>
                 </div>
-                <p class="text-center text-gray-400 text-sm mt-4">*Preview unggahan Instagram representatif. Klik tombol untuk melihat postingan asli di Instagram.</p>
+                <p class="text-center text-gray-400 text-sm mt-4">*Preview unggahan Instagram representatif.</p>
             </div>
 
-            <!-- YouTube Preview: Shorts tanpa buka tab baru, embed langsung -->
+            <!-- YouTube Preview: Shorts embed -->
             <div data-aos="fade-left" class="mt-16">
-                <div class="flex items-center gap-3 mb-6"><i class="fab fa-youtube text-red-600 text-3xl"></i><h3 class="text-2xl font-bold text-navy-blue">Video Khitan Modern (YouTube Shorts)</h3></div>
+                <div class="flex items-center gap-3 mb-6"><i class="fab fa-youtube text-red-600 text-3xl"></i><h3 class="text-2xl font-bold text-navy-blue">Video Edukasi (YouTube)</h3></div>
                 <div class="youtube-preview shadow-xl">
                     <iframe src="https://www.youtube.com/embed/hiarPfE82Oc?si=Y7chlrHjZpp4oP56&autoplay=0&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
-                <p class="text-gray-500 text-center mt-3">Teknik tanpa jahitan, proses cepat & nyaman — tonton video langsung di laman ini (tanpa buka tab baru).</p>
+                <p class="text-gray-500 text-center mt-3">Tonton video prosedur khitan modern secara langsung di laman ini.</p>
             </div>
         </div>
     </section>
 
-    <!-- Kontak & Peta (Alamat, No WA baru + Maps update) -->
+    <!-- Kontak & Peta (Alamat, No WA) -->
     <section id="kontak" class="py-20 px-5 bg-soft-white">
         <div class="container mx-auto">
             <div class="grid md:grid-cols-2 gap-12">
                 <div data-aos="fade-right">
                     <h2 class="text-3xl font-bold text-navy-blue">Hubungi & Kunjungi Kami</h2>
-                    <p class="text-gray-500 mt-3">Konsultasi gratis, jadwal khitan, atau promo paket hemat. Team kami siap membantu via WhatsApp.</p>
+                    <p class="text-gray-500 mt-3">Konsultasi gratis seputar metode khitan yang sesuai. Tim kami siap membantu via WhatsApp.</p>
                     <div class="mt-8 space-y-5">
-                        <div class="flex items-center gap-4"><i class="fas fa-map-pin text-teal-primary text-2xl w-8"></i><span class="text-gray-700"><strong>Alamat Baru:</strong> PERUM GRAND LESTARI AGUNG, BLOK J9, Kali Baros, Taman, Kec. Taman, Kabupaten Pemalang, Jawa Tengah 52361</span></div>
+                        <div class="flex items-center gap-4"><i class="fas fa-map-pin text-teal-primary text-2xl w-8"></i><span class="text-gray-700"><strong>Alamat:</strong> PERUM GRAND LESTARI AGUNG, BLOK J9, Kali Baros, Taman, Kec. Taman, Kabupaten Pemalang, Jawa Tengah 52361</span></div>
                         <div class="flex items-center gap-4"><i class="fas fa-phone-alt text-teal-primary text-2xl w-8"></i><span class="text-gray-700"><strong>Telepon/WA:</strong> 0853-1809-4567 (dr. Ofi Dwiantoro)</span></div>
                         <div class="flex items-center gap-4"><i class="far fa-clock text-teal-primary text-2xl w-8"></i><span class="text-gray-700">Senin - Sabtu: 08.00 - 17.00 | Minggu & Libur Nasional tutup</span></div>
                     </div>
                     <div class="mt-8 flex flex-wrap gap-4">
-                        <a href="https://wa.me/6285318094567?text=Halo%20Khitan%20Centre%20Uwais%20Al%20Qarni%2C%20saya%20ingin%20konsultasi%20pendaftaran%20khitan%20modern%20tanpa%20suntik." target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full inline-flex items-center gap-2 shadow-lg btn-expand"><i class="fab fa-whatsapp text-xl"></i> Chat WhatsApp</a>
+                        <a href="https://wa.me/6285318094567?text=Halo%20Khitan%20Centre%20Uwais%20Al%20Qarni%2C%20saya%20ingin%20konsultasi%20pendaftaran%20khitan." target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full inline-flex items-center gap-2 shadow-lg btn-expand"><i class="fab fa-whatsapp text-xl"></i> Chat WhatsApp</a>
                         <a href="https://maps.app.goo.gl/w2oRbawa8uZMbpym8" target="_blank" class="border border-teal-primary text-teal-primary hover:bg-teal-primary hover:text-white transition-all font-semibold py-3 px-5 rounded-full inline-flex items-center gap-2"><i class="fas fa-directions"></i> Buka Maps</a>
                     </div>
-                    <!-- badge jaringan sunat nusantara -->
                     <div class="mt-6 bg-teal-primary/10 p-3 rounded-xl inline-block"><i class="fas fa-shield-alt text-teal-primary mr-2"></i><span class="text-sm font-medium">Anggota Resmi Jaringan Sunat Nusantara (JSN)</span></div>
                 </div>
                 <div data-aos="fade-left" class="h-80 md:h-96 rounded-2xl overflow-hidden shadow-xl border-2 border-teal-light">
-                    <!-- MAPS UPDATE sesuai alamat Pemalang dan iframe yang diberikan -->
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2628.748268616931!2d109.40339096128305!3d-6.896891110840869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fdb36a2d0c335%3A0xcecbaa9d524decc6!2sKhitan%20Centre%20Uwais%20Al%20Qarni!5e1!3m2!1sid!2sid!4v1777103490121!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
@@ -206,20 +306,58 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-navy-blue text-white py-8 text-center"><p>© 2026 Khitan Centre Uwais Al Qarni - Sunat Modern Terpercaya (Pemalang) <i class="fas fa-heart text-teal-light"></i> Metode tanpa jahitan, tanpa suntik, cepat pulih.</p><p class="text-sm text-teal-light/60 mt-2">dr. Ofi Dwiantoro | Anggota Jaringan Sunat Nusantara</p></footer>
+    <footer class="bg-navy-blue text-white py-8 text-center"><p>© 2026 Khitan Centre Uwais Al Qarni - Dokter Sunat Profesional di Pemalang <i class="fas fa-heart text-teal-light"></i> </p><p class="text-sm text-teal-light/60 mt-2">dr. Ofi Dwiantoro | Anggota Jaringan Sunat Nusantara | Konsultasi Khitan Tersedia</p></footer>
 
     <!-- Floating WhatsApp -->
-    <a href="https://wa.me/6285318094567?text=Halo%20Khitan%20Centre%20Uwais%20Al%20Qarni%2C%20saya%20ingin%20konsultasi%20pendaftaran%20khitan%20modern." target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white rounded-full p-4 shadow-2xl z-50 flex items-center justify-center btn-wa-float"><i class="fab fa-whatsapp text-3xl"></i></a>
+    <a href="https://wa.me/6285318094567?text=Halo%20Khitan%20Centre%20Uwais%20Al%20Qarni%2C%20saya%20ingin%20konsultasi%20khitan." target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white rounded-full p-4 shadow-2xl z-50 flex items-center justify-center btn-wa-float"><i class="fab fa-whatsapp text-3xl"></i></a>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 800, once: false, offset: 100 });
+        
+        // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => { if (window.scrollY > 20) { navbar.classList.remove('navbar-transparent'); navbar.classList.add('navbar-scrolled'); } else { navbar.classList.remove('navbar-scrolled'); navbar.classList.add('navbar-transparent'); } });
+        
+        // Mobile menu toggle
         const menuBtn = document.getElementById('menu-btn'); const mobileMenu = document.getElementById('mobile-menu'); let menuOpen = false;
         menuBtn.addEventListener('click', () => { if (!menuOpen) { mobileMenu.classList.remove('-translate-y-full'); mobileMenu.classList.add('translate-y-0'); menuOpen = true; } else { mobileMenu.classList.add('-translate-y-full'); mobileMenu.classList.remove('translate-y-0'); menuOpen = false; } });
         document.querySelectorAll('#mobile-menu a, a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function(e) { const target = document.querySelector(this.getAttribute('href')); if (target && this.getAttribute('href') !== '#') { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); } if (mobileMenu.classList.contains('translate-y-0')) { mobileMenu.classList.add('-translate-y-full'); mobileMenu.classList.remove('translate-y-0'); menuOpen = false; } }); });
+        
+        // Modal Popup Logic
+        const modal = document.getElementById('deskripsiModal');
+        const btnOpen = document.getElementById('btnOpenModal');
+        const btnClose = document.getElementById('btnCloseModal');
+        const btnCloseBottom = document.getElementById('btnCloseModalBottom');
+        
+        function openModal() {
+            modal.classList.remove('opacity-0', 'invisible');
+            modal.classList.add('opacity-100', 'visible');
+            const modalContent = modal.querySelector('.relative');
+            modalContent.classList.remove('scale-95', 'opacity-0');
+            modalContent.classList.add('scale-100', 'opacity-100');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            const modalContent = modal.querySelector('.relative');
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            modal.classList.remove('opacity-100', 'visible');
+            modal.classList.add('opacity-0', 'invisible');
+            document.body.style.overflow = '';
+        }
+        
+        btnOpen.addEventListener('click', openModal);
+        btnClose.addEventListener('click', closeModal);
+        if(btnCloseBottom) btnCloseBottom.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if(e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape' && modal.classList.contains('visible')) closeModal();
+        });
     </script>
 </body>
 </html>
